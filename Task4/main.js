@@ -2,13 +2,13 @@
 
 function calcRectangleArea (width, height) {
     if (typeof width === "number" && typeof height === "number") {
-        console.log (0.5 * width * height); // return
+        return 0.5 * width * height;
     }
     throw new Error('Entered values are not numbers');
 }
 
 try {
-    calcRectangleArea(5, 8);
+    console.log(calcRectangleArea(5, 8));
 } catch (e) {
     console.log(e.name, e.message);
 }
@@ -16,24 +16,22 @@ try {
 /* Task 2 */
 
 function checkAge(num) {
-    if (num === null || num === undefined) {
-        alert('The field is empty! Please enter your age');
+    if (num === null || num === undefined || (typeof num === 'string' && num.trim() === '')) {
+        throw new Error ('The field is empty! Please enter your age');
     } else if (typeof num !== "number") {
-        alert('The entered value is not a number');
+        throw new Error ('The entered value is not a number');
     } else if (num < 14) {
-        alert('You are younger, than 14');
-    } else {
-        throw new Error('Something went wrong! Please, try one more time');
+        throw new Error ('You are younger, than 14');
     }
 }
 
-let num = '';
+let num = 14;
 
-try{
+try {
     checkAge(num);
+    alert(`You have access to movies`);
 } catch (e) {
-    console.log(e.name);
-    console.log(e.message);
+    console.log(e.name, e.message);
 }
 
 /* Task 3 */
@@ -76,10 +74,10 @@ try {
 /* Task 4 */
 
 function showUser(id) {
-    if (id >= 0) {
-        return {id: id};
+    if (id < 0) {
+        throw new Error(`Id must not be negative: ${id}`);
     }
-    throw new Error(`Id must not be negative: ${id}`);
+    return {id: id};
 }
 
 console.log(showUser(5));
@@ -87,8 +85,10 @@ console.log(showUser(5));
 function showUsers(ids) {
     let array = [];
     for (let id of ids) {
-        if (id >= 0) {
+        try {
             array.push(showUser(id));
+        } catch(e) {
+            console.log(`${e.name}: ${e.message}`);
         }
     }
     return array;
