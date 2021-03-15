@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+    <input type="text" id="input1" value="Text1">
+    <input type="text" id="input2" value="Text2">
+
+
+<script>
+
+    const firstString = prompt('Enter string');
+    const secondString = prompt('Enter one more string');
+
+    const firstInput = document.getElementById('input1');
+    firstInput.value = firstString;
+    const secondInput = document.getElementById('input2');
+    secondInput.value = secondString;
+
+    firstInput.before(secondInput);
+
+</script>
+</body>
+</html>

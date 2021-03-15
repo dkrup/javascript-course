@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<script>
+    const main = document.createElement('main');
+
+    document.querySelector('body').prepend(main);
+    main.className = 'mainClass check item';
+
+    let div = document.createElement('div');
+    main.prepend(div);
+
+    div.id = 'myDiv';
+
+    let p = document.createElement('p');
+    div.prepend(p);
+
+    document.querySelector('p').innerHTML = 'First paragraph';
+</script>
+</body>
+</html>

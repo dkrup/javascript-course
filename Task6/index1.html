@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<div id='test'>First</div>
+
+<script>
+    const elem = document.getElementById('test');
+    elem.textContent = 'Last';
+
+    setTimeout(() => {
+        document.querySelector('#test').innerHTML = 'Last1';
+    }, 3000);
+
+</script>
+</body>
+</html>

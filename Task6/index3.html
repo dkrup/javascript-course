@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+    <h2>Article header</h2>
+        <div id="text">
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+            <p>Third paragraph</p>
+        </div>
+    <p>Another text</p>
+
+<script>
+
+    const elements = document.querySelectorAll('#text p');
+
+    for (let i = 0; i < elements.length; i++) {
+        console.log(`Selector text ${i}: ${elements[i].innerHTML}`);
+    }
+
+</script>
+</body>
+</html>
