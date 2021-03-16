@@ -17,8 +17,9 @@
 <script>
 
     const elements = document.querySelectorAll('#text p');
+    const elementsLength = elements.length;
 
-    for (let i = 0; i < elements.length; i++) {
+    for (let i = 0; i < elementsLength; i++) {
         console.log(`Selector text ${i}: ${elements[i].innerHTML}`);
     }
 
