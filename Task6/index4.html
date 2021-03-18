@@ -18,29 +18,32 @@
 
     // 1st Variant
 
-    const elements = document.getElementsByTagName('li');
+    let res = [];
+    const elem = document.getElementsByTagName('li');
+    res.push(
+        elem[0].innerHTML,
+        elem[4].innerHTML,
+        elem[1].innerHTML,
+        elem[3].innerHTML,
+        elem[2].innerHTML,
+    );
 
-    const arr = [0, 4, 1, 3, 2];
-    let result = [];
-
-    for (let i of arr) {
-        result.push(elements[i].innerHTML)
-    }
-
-    alert(`Результат виводу: ${result}`);
+    alert(`Результат виводу: ${res}`);
 
     // 2nd Variant
 
     const element = document.querySelector('#list').children;
+    let result = [];
 
-    let array = [0, 4, 1, 3, 2];
-    let result2 = [];
+    result.push(
+        element[0].textContent,
+        element[4].textContent,
+        element[1].textContent,
+        element[3].textContent,
+        element[2].textContent,
+    );
 
-    for (let i of array) {
-        result2.push(element[i].innerHTML);
-    }
-
-    alert(`Результат виводу 2: ${result2}`);
+    alert(`Результат виводу 2: ${result}`);
 
 </script>
 
