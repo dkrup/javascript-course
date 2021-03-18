@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<script>
+    const newWindow = window.open('', '','width = 300, height = 300');
+
+    const newParagraph = newWindow.document.createElement('p');
+    newWindow.document.querySelector('body').appendChild(newParagraph);
+    newParagraph.className = 'newParagraph';
+
+    function showWindowSize() {
+        let screenWidth = newWindow.innerWidth;
+        let screenHeight = newWindow.innerHeight;
+        newWindow.document.querySelector('.newParagraph').innerHTML =
+            `Width: ${screenWidth}, Height: ${screenHeight}`;
+    }
+
+    newWindow.addEventListener('resize', showWindowSize);
+
+</script>
+</body>
+</html>

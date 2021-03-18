@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<div id='buttons'>
+    <button id='firstBtn' onclick='changeFont()'>Click to make the page blue!</button>
+    <button id='secondBtn' ondblclick='doubleClick()'>Double-click to make the page pink!</button>
+    <button id='thirdBtn'>Click and hold to make the page brown!</button>
+    <a id='link' href=''>Hover over to make page yellow!</a>
+</div>
+
+<script>
+
+    const body = document.querySelector('body');
+    const secondBtnElem = document.querySelector('#secondBtn');
+    const thirdBtnElem = document.querySelector('#thirdBtn');
+    const linkElem = document.querySelector('a');
+
+    function changeFont() {
+        body.style.backgroundColor = 'blue';
+    }
+
+    /****************************/
+
+    function doubleClick() {
+        body.style.backgroundColor = 'pink';
+    }
+
+    /****************************/
+
+    function eventHandlerBrown() {
+        body.style.backgroundColor = 'brown';
+    }
+
+    function eventHandlerWhite() {
+        body.style.backgroundColor = 'white';
+    }
+
+    thirdBtnElem.addEventListener('mousedown', eventHandlerBrown);
+    thirdBtnElem.addEventListener('mouseup', eventHandlerWhite);
+
+    /****************************/
+
+    linkElem.onmouseover = () => body.style.backgroundColor = "yellow";
+    linkElem.onmouseleave = () => body.style.backgroundColor = "white";
+
+</script>
+</body>
+</html>

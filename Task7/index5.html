@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<button id="btn">Live button</button>
+
+<script>
+
+    const btn = document.querySelector('#btn');
+
+    function mouseOnMe() {
+        const newParagraph = document.createElement('p');
+        document.querySelector('script').before(newParagraph);
+        newParagraph.className = 'newParagraph';
+        document.querySelector('p:last-of-type').innerHTML = 'Mouse on me';
+    }
+
+    function pressedBtn() {
+        const newParagraph2 = document.createElement('p');
+        document.querySelector('script').before(newParagraph2);
+        newParagraph2.className = 'newParagraph2';
+        document.querySelector('p:last-of-type').innerHTML = 'I was pressed';
+    }
+
+    function mouseIsNotOnMe() {
+        const newParagraph1 = document.createElement('p');
+        document.querySelector('script').before(newParagraph1);
+        newParagraph1.className = 'newParagraph1';
+        document.querySelector('p:last-of-type').innerHTML = 'Mouse is not on me';
+    }
+
+    btn.addEventListener('mouseover', mouseOnMe);
+    btn.addEventListener('click', pressedBtn);
+    btn.addEventListener('mouseleave', mouseIsNotOnMe);
+
+</script>
+</body>
+</html>

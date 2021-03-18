@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<label for="country">
+    <select name="country" id="country">
+        <option disabled selected value>Select country</option>
+
+        <option value="ger">Germany</option>
+        <option value="usa">USA</option>
+        <option value="ukr">Ukraine</option>
+    </select>
+</label>
+
+<label for="cities">
+    <select name="cities" id="cities">
+
+    </select>
+</label>
+
+<p></p>
+
+
+<script>
+    const cities = {
+        usa: ['New-York', 'Washington', 'Boston', 'Chicago'],
+        ger: ['Berlin', 'Bonn', 'Frankfurt', 'Frankenberg'],
+        ukr: ['Kiev', 'Kharkiv', 'Lviv', 'Mariupol'],
+    }
+
+    const countrySelect = document.getElementById('country');
+    const citySelect = document.getElementById('cities');
+
+    function handler() {
+        const selectedIndex = countrySelect.selectedIndex;
+        let valueOfSelectedCountry = countrySelect.options[selectedIndex].value;
+        addCities(cities[valueOfSelectedCountry]);
+    }
+
+    function addCities(cities) {
+        citySelect.innerHTML = '';
+        const citiesLength = cities.length;
+        for (let i = 0; i < citiesLength; i++) {
+            let option = document.createElement('option');
+            option.innerHTML = cities[i];
+            citySelect.appendChild(option);
+        }
+    }
+
+    countrySelect.addEventListener('change', handler);
+
+</script>
+</body>
+</html>

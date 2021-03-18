@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<script>
+
+    const newWindow = window.open('', '','width = 300, height = 300');
+
+    // setTimeout(() => {
+    //     newWindow.resizeTo(500, 500);
+    //     setTimeout(() => {
+    //         newWindow.moveTo(200, 200);
+    //         setTimeout(() => newWindow.close(), 2000);
+    //     }, 2000);
+    // }, 2000);
+
+    function timeout(ms) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, ms)
+        });
+    }
+
+    (async function() {
+        await timeout(2000);
+        newWindow.resizeTo(500, 500);
+        await timeout(2000);
+        newWindow.moveTo(200, 200);
+        await timeout(2000);
+        newWindow.close();
+    }());
+
+</script>
+</body>
+</html>

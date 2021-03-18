@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+    <div class="dropdown">
+        <label for="sel">
+            <select id="sel">
+                <option>Peter</option>
+                <option>John</option>
+                <option>Alice</option>
+                <option>Alex</option>
+                <option>Irene</option>
+            </select>
+        </label>
+
+        <button onclick="removeOptions()">Choose and delete</button>
+
+    </div>
+
+<script>
+
+    function removeOptions() { 
+        try {
+            removeOption();
+        } catch (e) {
+            showMessage(e.message);
+        }
+
+        function removeOption() {
+            const select = document.getElementById('sel');
+            const selectedIndex = select.selectedIndex;
+
+            if (isDropdownEmpty(selectedIndex)) {
+                throw new Error('Dropdown is empty');
+            }
+            select.options[selectedIndex].remove();
+        }
+
+        function isDropdownEmpty(selectedIndex) {
+            return selectedIndex < 0;
+        }
+
+        function showMessage(message) {
+            alert(message);
+        }
+    }
+
+</script>
+</body>
+</html>
