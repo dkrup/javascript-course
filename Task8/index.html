@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+
+<h2 class="head">header1</h2>
+<h2 class="head">header2<span class="inner">inner elem1</span></h2>
+<h2>header3</h2>
+<h2 class="head">header4<span>inner elem2</span></h2>
+<h2>header5</h2>
+
+<form id='checkboxes'>
+    <p>
+        <label><input onclick='eventHandler(0)' type="checkbox" name="a" value="1">1</label>
+    </p>
+    <p>
+        <label><input onclick='eventHandler(1)' type="checkbox" name="b" value="2">2</label>
+    </p>
+    <p>
+        <label><input onclick='eventHandler(2)' type="checkbox" name="c" value="3">3</label>
+    </p>
+    <p>
+        <label><input onclick='eventHandler(3)' type="checkbox" name="d" value="4">4</label>
+    </p>
+    <p>
+        <label><input onclick='eventHandler(4)' type="checkbox" name="e" value="5">5</label>
+    </p>
+    <p>
+        <label><input onclick='eventHandler(5)' type="checkbox" name="f" value="6">6</label>
+    </p>
+</form>
+
+<script src="main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    // Task 3
+
+    $('h2.head').css('backgroundColor', 'green');
+    $('.inner').css('fontSize', '35px');
+
+    // Task 4
+
+    let counter = 0;
+    const maxCounter = 3;
+
+    function eventHandler(inputNumber) {
+        const input = $('input')[inputNumber];
+
+        if (input.checked) {
+            counter++;
+            if (counter === maxCounter) {
+                disableCheckboxes();
+            }
+        }
+    }
+
+    function disableCheckboxes() {
+        const input = $('input');
+        const checkBoxLength = input.length;
+
+        for (let i = 0; i < checkBoxLength; i++) {
+            if (input[i].type !== 'checkbox'){
+                break;
+            }
+            input[i].disabled = true;
+        }
+    }
+
+</script>
+</body>
+</html>
