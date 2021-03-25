@@ -56,13 +56,11 @@ checkEmail1('my_mail@gmail.com');
 // Task 7
 
 function checkLogin(login) {
-    const regExp1 = /^.{2,10}$/;
-    const regExp2 = /[a-zA-Z]+([0-9]+\.[0-9]+)?[0-9]*/;
-    const regExp3 = /^[a-zA-Z].+/;
+    const regExp1 = /^[a-zA-Z][a-zA-Z0-9.]{1,9}$/;
 
     console.log(login.match(/[0-9]+(\.[0-9]+)?/g));
 
-    return regExp1.test(login) && regExp2.test(login) && regExp3.test(login);
+    return regExp1.test(login);
 }
 
 console.log(checkLogin('ee1.1ret3'));
