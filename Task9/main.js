@@ -1,7 +1,7 @@
 // Task 1
 
 let arr = ["Tom", "Sam", "Ray", "Bob"];
-let [x, y, ,...z] = arr;
+let [x, y, , ...z] = arr;
 console.log(x); // "Tom"
 console.log(y); // "Sam"
 console.log(z); // [Bob]
@@ -42,7 +42,7 @@ console.log(mul(null, "str", false, true)); // 0
 
 let server = {
     data: 0,
-    convertToString: function (callback) {
+    convertToString: (callback) => {
         callback(() => this.data + "");
     }
 };
@@ -50,11 +50,11 @@ let server = {
 let client = {
     server: server,
     result: "",
-    calc: function (data) {
+    calc: (data) => {
         this.server.data = data;
         this.server.convertToString(this.notification());
     },
-    notification: function () {
+    notification: () => {
         return ((callback) => {
             this.result = callback();
         });
