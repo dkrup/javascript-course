@@ -44,6 +44,7 @@ function showNumbers() {
     const max = 5000;
 
     let i = 0;
+
     delay(i, getRand(min, max)).then((response) => {
         console.log(response);
         return delay(i + 1, getRand(min, max));
@@ -83,7 +84,7 @@ function getRand(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-showNumbers();
+// showNumbers();
 
 // Task 4
 
@@ -91,7 +92,7 @@ const deLay = (i, time) =>
     new Promise(resolve => setTimeout(() => resolve(console.log(i)), time)
 );
 
-async function showNumbers1() {
+(async function showNumbers1() {
     const min = 0;
     const max = 5000;
 
@@ -99,6 +100,4 @@ async function showNumbers1() {
     for (i; i <= 10; i++) {
         await deLay(i, getRand(min, max));
     }
-}
-
-// showNumbers1().then();
+}());
