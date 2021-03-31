@@ -2,7 +2,6 @@
 
 const http = require("http");
 const os = require("os");
-const utf8 = require('utf8');
 
 const dayAndNight = require("./script.js");
 
