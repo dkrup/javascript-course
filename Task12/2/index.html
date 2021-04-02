@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<button id="btn" onclick="changeText()">Download books</button>
+<ul id="authors">
+
+</ul>
+
+<script>
+    function changeText() {
+        const ajaxRequest = new XMLHttpRequest();
+
+        ajaxRequest.open('GET', 'books.json');
+
+        ajaxRequest.onload = () => {
+            if (ajaxRequest.status !== 200) {
+                alert(`${ajaxRequest.status}: ${ajaxRequest.statusText}`);
+            } else {
+                const json = JSON.parse(ajaxRequest.responseText);
+                const objLength = json.length;
+
+                for (let i = 0; i < objLength; i++) {
+                    let author = json[i].author;
+                    let ul = document.getElementById("authors");
+                    let li = document.createElement("li");
+                    ul.appendChild(li);
+                    li.innerText = author;
+                }
+            }
+        }
+        ajaxRequest.send();
+    }
+</script>
+</body>
+</html>

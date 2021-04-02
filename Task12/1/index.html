@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Course</title>
+</head>
+<body>
+
+<button id="btn" onclick="changeText()">Vote</button>
+
+<script>
+
+    function changeText() {
+        const ajaxRequest = new XMLHttpRequest();
+
+        ajaxRequest.open('GET', 'data.txt');
+
+        ajaxRequest.onreadystatechange = () => {
+            if (ajaxRequest.status !== 200) {
+                alert(`${ajaxRequest.status}: ${ajaxRequest.statusText}`);
+            } else {
+                document.getElementById('btn')
+                    .innerText = `${ajaxRequest.responseText} ${new Date()}`;
+            }
+        }
+        ajaxRequest.send();
+    }
+
+</script>
+</body>
+</html>

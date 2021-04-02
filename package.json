@@ -1,0 +1,8 @@
+{
+  "name": "java_script_course",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "node-static": "^0.7.11"
+  }
+}
